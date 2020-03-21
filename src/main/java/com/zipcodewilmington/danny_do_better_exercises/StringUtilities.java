@@ -54,7 +54,7 @@ public class StringUtilities {
      * @return the last 3 characters of `input`
      **/
     public static String getSuffix(String input){
-        return input.substring(2, 5);
+        return  input.substring(2, 5);
     }
 
     /**
@@ -63,38 +63,63 @@ public class StringUtilities {
      * @return the equivalence of two strings, `inputValue` and `comparableValue`
      */
     public static Boolean compareTwoStrings(String inputValue, String comparableValue) {
-        return null;
+        if (inputValue.equals(comparableValue)) return true;
+        else return false;
+
     }
 
             /**
      * @param inputValue the value input from user
      * @return the middle character of `inputValue`
      */
-    public static Character getMiddleCharacter(String inputValue){
-        return null;
-    }
+    public static Character getMiddleCharacter(String inputValue) {
+        int middle = 0;
+        if (inputValue.length() % 2 != 0) {
+            middle = inputValue.length() / 2;
+            return inputValue.charAt(middle);
+        } else {
+            middle = inputValue.length() / 2;
+            return inputValue.charAt(middle - 1);
 
-    /**
-     * @param spaceDelimitedString a string, representative of a sentence, containing spaces
-     * @return the first sequence of characters
-     */
-    public static String getFirstWord(String spaceDelimitedString){
-        return null;
+        }
     }
+        /**
+         * @param spaceDelimitedString a string, representative of a sentence, containing spaces
+         * @return the first sequence of characters
+         */
+        public static String getFirstWord (String spaceDelimitedString){
+            String[] arr = spaceDelimitedString.split(" ");
+            return arr[0];
+        }
 
-    /**
-     * @param spaceDelimitedString a string delimited by spaces
-     * @return the second word of a string delimited by spaces.
-     */
-    public static String getSecondWord(String spaceDelimitedString){
-        return null;
-    }
+        /**
+         * @param spaceDelimitedString a string delimited by spaces
+         * @return the second word of a string delimited by spaces.
+         */
+        public static String getSecondWord (String spaceDelimitedString){
+            String[] wordList = spaceDelimitedString.split(" ");
+            return wordList[1];
 
-    /**
-     * @param stringToReverse
-     * @return an identical string with characters in reverse order.
-     */
-    public static String reverse(String stringToReverse){
-        return null;
+        }
+
+        /**
+         * @param stringToReverse
+         * @return an identical string with characters in reverse order.
+         */
+        public static String reverse (String stringToReverse){
+            char[] in = stringToReverse.toCharArray();
+            int begin = 0;
+            int end = in.length - 1;
+            char temp;
+            while (end > begin) {
+                temp = in[begin];
+                in[begin] = in[end];
+                in[end] = temp;
+                end--;
+                begin++;
+            }
+            return new String(in);
+
+        }
+
     }
-}
